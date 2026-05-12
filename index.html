@@ -1,0 +1,1314 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diana Rafael — New Collection Moodboard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black: #0a0a0a;
+    --deep: #111111;
+    --charcoal: #1c1c1c;
+    --smoke: #2e2e2e;
+    --ash: #4a4a4a;
+    --silver: #8a8a8a;
+    --dust: #b8b0a8;
+    --bone: #d4cdc6;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --brown-diamond: #6b4f3a;
+    --salt: #f0ede8;
+    --pulsar-blue: #3a5fd9;
+    --nebula-purple: #6b3fa0;
+    --cosmic-glow: rgba(58,95,217,0.18);
+    --nebula-glow: rgba(107,63,160,0.15);
+  }
+
+  body {
+    background: var(--black);
+    color: var(--bone);
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 40% at 20% 70%, rgba(58,95,217,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 75% 25%, rgba(107,63,160,0.1) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 40% at 30% 60%, rgba(201,168,76,0.05) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 80% at 50% 50%, rgba(20,20,20,0.92) 0%, var(--black) 100%);
+  }
+
+  /* Stars */
+  .stars {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--d) ease-in-out infinite alternate;
+  }
+  @keyframes twinkle {
+    from { opacity: var(--min); transform: scale(1); }
+    to   { opacity: var(--max); transform: scale(1.4); }
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+  }
+
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    letter-spacing: 0.5em;
+    color: var(--silver);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .collection-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3rem, 8vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    color: var(--bone);
+    margin-bottom: 0.5rem;
+  }
+
+  .collection-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .collection-sub {
+    font-weight: 300;
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+    letter-spacing: 0.3em;
+    color: var(--ash);
+    text-transform: uppercase;
+    margin-top: 2rem;
+  }
+
+  /* Gold crack divider */
+  .crack-divider {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    overflow: visible;
+    margin: 3rem 0;
+  }
+  .crack-divider svg {
+    width: 100%;
+    height: 80px;
+  }
+
+  /* ── SECTION ── */
+  section {
+    padding: 6rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+  }
+
+  /* ── DUALITY GRID ── */
+  .duality-grid {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 0;
+    min-height: 320px;
+    border: 1px solid var(--smoke);
+  }
+
+  .duality-side {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .duality-side.dark {
+    background: var(--black);
+  }
+
+  .duality-side.light {
+    background: var(--charcoal);
+  }
+
+  .duality-divider {
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  }
+
+  .duality-word-big {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .duality-word-small {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--silver);
+    margin-top: 0.5rem;
+  }
+
+  .duality-pair {
+    margin-bottom: 2rem;
+  }
+
+  /* ── COLOR PALETTE ── */
+  .palette-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .swatch-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .swatch {
+    width: 90px;
+    height: 90px;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .swatch::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 50%, rgba(0,0,0,0.3) 100%);
+  }
+
+  /* Diamond cut swatch shapes */
+  .swatch.diamond-shape {
+    clip-path: polygon(50% 0%, 100% 35%, 75% 100%, 25% 100%, 0% 35%);
+    width: 70px;
+    height: 85px;
+  }
+
+  .swatch-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--silver);
+    text-align: center;
+  }
+
+  .swatch-sub {
+    font-size: 0.7rem;
+    font-style: italic;
+    color: var(--ash);
+    text-align: center;
+  }
+
+  /* Black diamond */
+  .s-black { background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 40%, #2a2a2a 70%, #111 100%); border: 1px solid #333; }
+  .s-graphite { background: linear-gradient(135deg, #3a3a3a 0%, #252525 40%, #444 70%, #2d2d2d 100%); }
+  .s-smoky { background: linear-gradient(135deg, #5a5550 0%, #4a4540 40%, #6a6560 70%, #504d48 100%); }
+  .s-salt-pepper { background: radial-gradient(circle at 30% 30%, #e0ddd8 0%, #c8c5c0 20%, #8a8780 40%, #4a4845 70%, #2a2825 100%); }
+  .s-cognac { background: linear-gradient(135deg, #7a5030 0%, #6a4025 40%, #9a6545 70%, #7a4f35 100%); }
+  .s-champagne { background: linear-gradient(135deg, #c8a870 0%, #b89060 40%, #d8b880 70%, #c0a06a 100%); }
+
+  /* ── COSMIC SECTION ── */
+  .cosmic-bg {
+    background: var(--deep);
+    border-radius: 4px;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .cosmic-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 30%, rgba(107,79,58,0.1) 0%, transparent 50%),
+      radial-gradient(ellipse 30% 30% at 50% 80%, rgba(138,138,138,0.05) 0%, transparent 50%);
+  }
+
+  /* Supernova burst */
+  .supernova {
+    position: absolute;
+    top: 50%;
+    right: 15%;
+    transform: translate(50%, -50%);
+    width: 200px;
+    height: 200px;
+  }
+
+  .supernova-core {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--gold), 0 0 60px rgba(201,168,76,0.4), 0 0 100px rgba(201,168,76,0.15);
+  }
+
+  .supernova-ring {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .supernova-ray {
+    position: absolute;
+    top: 50%; left: 50%;
+    background: linear-gradient(to right, rgba(201,168,76,0.3), transparent);
+    height: 1px;
+    transform-origin: left center;
+  }
+
+  .cosmic-text {
+    position: relative;
+    z-index: 2;
+    max-width: 55%;
+  }
+
+  .cosmic-quote {
+    font-size: clamp(1.5rem, 3vw, 2.8rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.3;
+    color: var(--bone);
+    margin-bottom: 1.5rem;
+  }
+
+  .cosmic-attr {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── KINTSUGI ── */
+  .kintsugi-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 4rem 0;
+  }
+
+  .kintsugi-visual {
+    position: relative;
+    height: 300px;
+    border: 1px solid var(--smoke);
+    overflow: hidden;
+    background: var(--deep);
+  }
+
+  /* SVG kintsugi cracks handled inline */
+
+  .kintsugi-text h3 {
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .kintsugi-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--dust);
+  }
+
+  /* ── PHRASES ── */
+  .phrases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2px;
+    margin-top: 3rem;
+  }
+
+  .phrase-card {
+    background: var(--charcoal);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .phrase-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .phrase-card:hover { background: var(--smoke); }
+  .phrase-card:hover::before { opacity: 1; }
+
+  .phrase-en {
+    font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.25;
+    color: var(--bone);
+    margin-bottom: 1rem;
+  }
+
+  .phrase-he {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--silver);
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+  }
+
+  .phrase-note {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+
+  /* ── DIAMOND SHAPES SECTION ── */
+  .shapes-row {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding: 2rem 0;
+  }
+
+  .shape-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .diamond-svg {
+    filter: drop-shadow(0 0 8px rgba(201,168,76,0.15));
+  }
+
+  .shape-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--silver);
+  }
+
+  /* ── HORIZONTAL RULE ── */
+  .hr-gold {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+    margin: 1rem 0;
+    opacity: 0.3;
+  }
+
+  /* ── FOOTER NOTE ── */
+  .footer-note {
+    text-align: center;
+    padding: 4rem;
+    border-top: 1px solid var(--smoke);
+  }
+
+  .footer-note p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+
+  /* ── STATUS TAG ── */
+  .status-tag {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 0.3rem 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--smoke); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .manifesto-wrap { padding: 4rem 1.5rem !important; }
+    section { padding: 3rem 1.5rem; }
+
+    .duality-grid { grid-template-columns: 1fr; }
+    .duality-divider { display: none; }
+    .duality-side { padding: 2rem 1.5rem; }
+
+    .kintsugi-block { grid-template-columns: 1fr; gap: 2rem; }
+    .kintsugi-visual { height: 200px; }
+
+    .cosmic-bg { padding: 2.5rem 1.5rem; }
+    .cosmic-text { max-width: 100%; }
+    .supernova { display: none; }
+
+    .phrases-grid { grid-template-columns: 1fr; }
+
+    .mb-cols { columns: 2 !important; }
+    .mb-words { grid-template-columns: 1fr !important; }
+    .mb-section-title { padding: 1.5rem 1.5rem 0.6rem; }
+    .mb-main-label { padding: 2rem 1.5rem 1rem !important; }
+
+    .palette-row { gap: 1rem; }
+    .swatch { width: 70px; height: 70px; }
+  }
+
+  @media (max-width: 480px) {
+    .mb-cols { columns: 1 !important; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="hero-content">
+    <div class="brand-name">Diana Rafael</div>
+    <div class="collection-title">
+      <em>Remnant</em>
+    </div>
+    <div class="collection-sub">Working Title · Engagement Collection · Diana Rafael · 2026</div>
+  </div>
+</div>
+
+<!-- ═══ MANIFESTO ═══ -->
+<div class="manifesto-wrap" style="background:#080808;padding:8rem 4rem;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%, rgba(58,95,217,0.07) 0%, transparent 70%);"></div>
+  <div style="position:relative;z-index:2;max-width:700px;margin:0 auto;">
+    <div style="font-family:'Montserrat',sans-serif;font-weight:200;font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:3rem;">Collection Manifesto</div>
+    <blockquote style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.8vw,2.2rem);font-weight:300;font-style:italic;line-height:1.65;color:var(--bone);">
+      "For a star to be born,<br>
+      there is one thing that must happen:<br>
+      a gaseous nebula must collapse.<br><br>
+      <span style="color:var(--silver)">So collapse.<br>
+      Crumble.<br>
+      This is not your destruction.</span><br><br>
+      <span style="color:var(--gold-light)">This is your birth."</span>
+    </blockquote>
+    <div style="font-family:'Montserrat',sans-serif;font-weight:200;font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--ash);margin-top:2.5rem;">— r.h. sin</div>
+  </div>
+</div>
+
+<!-- ═══ VISUAL MOODBOARD GRID ═══ -->
+<div style="background:var(--black);">
+
+  <!-- LABEL -->
+  <div class="mb-main-label" style="font-family:'Montserrat',sans-serif;font-weight:200;font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);padding:3rem 4rem 1.5rem;">Visual References · Mood Grid</div>
+
+  <!-- shared image cell style -->
+  <style>
+    .mb-img { position:relative; overflow:hidden; display:block; break-inside:avoid; }
+    .mb-img img { width:100%; display:block; object-fit:cover; }
+    .mb-label { position:absolute; bottom:0; left:0; right:0; padding:0.5rem 0.8rem; font-family:'Montserrat',sans-serif; font-weight:200; font-size:0.5rem; letter-spacing:0.25em; text-transform:uppercase; background:linear-gradient(transparent,rgba(0,0,0,0.7)); color:rgba(255,255,255,0.5); }
+    .mb-section-title { font-family:'Montserrat',sans-serif; font-weight:200; font-size:0.55rem; letter-spacing:0.5em; text-transform:uppercase; color:var(--ash); padding:2rem 4rem 0.8rem; }
+  </style>
+
+  <!-- ── HERO ── -->
+  <div class="mb-img" style="height:85vh;">
+    <img src="images/e0c2b61b2c76e990edf01fe2df6832fd.jpg" style="height:100%;object-position:center top;">
+    <div class="mb-label" style="font-size:0.6rem;color:rgba(255,255,255,0.4);">Dogan Ural · The Ascent</div>
+  </div>
+
+  <!-- ── SPACE & COSMOS ── -->
+  <div class="mb-section-title">Space & Cosmos</div>
+  <div class="mb-cols" style="columns:4;gap:3px;padding:0 3px;">
+
+    <div class="mb-img">
+      <img src="images/4f3be4e8d3cf8b2c2a68fd3f85bd0ada.jpg">
+      <div class="mb-label">Colorful Nebula · Birth of Stars</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/27d1c87e2b62c1a2df36321cc2216edf.jpg">
+      <div class="mb-label">Neutron Star · Blue Pulsar</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/6ef5b08996b73cc4b0c481e363ea2e27.jpg">
+      <div class="mb-label">Supernova 1987A · Ring System</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/1fcf29574c6d606a7ffe7d8274b67fc5.jpg">
+      <div class="mb-label">Cosmic Web · Gems in Space</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/662fff06da086fa5e022540605d4f5c0.jpg">
+      <div class="mb-label">Gravitational Wave · Spacetime</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/a49f4c25f76c102f62a57432f1405c73.jpg">
+      <div class="mb-label">Supernova · Poster</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/f126def7a5abd734e1c2425d370ab644.jpg">
+      <div class="mb-label">Galaxy · Dotwork Illustration</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/bfe10c044ec47a5f80d8c4636f86afa3.jpg">
+      <div class="mb-label">Cosmic Tattoo · Young Tattoo</div>
+    </div>
+
+  </div>
+
+  <!-- ── KINTSUGI & CRAFT ── -->
+  <div class="mb-section-title">Kintsugi & Craft</div>
+  <div class="mb-cols" style="columns:4;gap:3px;padding:0 3px;">
+
+    <div class="mb-img" style="break-inside:avoid;column-span:none;">
+      <img src="images/d242b9573a6cccf9924a1dba86f54d60.jpg">
+      <div class="mb-label">Kintsugi Stone · Neuron of Light</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/ba76e6fbbff8baf3bffee36c270d6678.jpg">
+      <div class="mb-label">Organic Wood · Coral Structure</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/32ea5aedbf1553f6f38a676a352a4943.jpg">
+      <div class="mb-label">Wood Art · Gravitational Waves</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/6e93a5b9bafdc312f9674b4a9c519133.jpg">
+      <div class="mb-label">Sunburst · Black & Gold</div>
+    </div>
+
+  </div>
+
+  <!-- ── QUOTES ── -->
+  <div class="mb-section-title">Words</div>
+  <div class="mb-words" style="display:grid;grid-template-columns:2fr 1fr;gap:3px;padding:0 3px;">
+
+    <div class="mb-img">
+      <img src="images/b786a8fb610674bd686d4fc93fc9b39c.jpg">
+      <div class="mb-label">n.t. · For a star to be born</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/b9269b15692471f53056bcef9c01e507.jpg">
+      <div class="mb-label">John Mark Green · The Light</div>
+    </div>
+
+  </div>
+
+  <!-- ── JEWELRY · KINTSUGI ── -->
+  <div class="mb-section-title">Jewelry · Kintsugi References</div>
+  <div class="mb-cols" style="columns:4;gap:3px;padding:0 3px;">
+
+    <div class="mb-img">
+      <img src="images/02d4df8075513b97f4159587fa38905e.jpg">
+      <div class="mb-label">Kintsugi Signet · 4 Metals</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/1f961d1ded832b851023a646dac67e48.jpg">
+      <div class="mb-label">Kintsugi Bands · Dark & Silver</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/20711f85bc7e00ba9e2331f71fefb26e.jpg">
+      <div class="mb-label">Kintsugi Ring · Wide Silver Band</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/fcb4391cc958086b4d341487be98b143.jpg">
+      <div class="mb-label">Kintsugi Ring · Black Onyx Gold</div>
+    </div>
+
+  </div>
+
+  <!-- ── JEWELRY · STATEMENT ── -->
+  <div class="mb-section-title">Jewelry · Statement & Direction</div>
+  <div class="mb-cols" style="columns:3;gap:3px;padding:0 3px 3px;">
+
+    <div class="mb-img">
+      <img src="images/13a0471b75837f9d08147c7ba749c718.jpg">
+      <div class="mb-label">Gold Signet · Black Diamonds</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/224e1772074b3e8a5e99bf3ae979702d.jpg">
+      <div class="mb-label">Rough Signet · Yellow Gold</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/cdad325e3809dd9d4a5e0bc9adda3aab.jpg">
+      <div class="mb-label">Wave Ring · Marquise Diamond</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/f1e89263338893a41774ae25fd894f1b.jpg">
+      <div class="mb-label">Starburst Ring · Pearl Center</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/26f4e77f8748ea003825cf8d36936f2f.jpg">
+      <div class="mb-label">Wave Necklace · Gold</div>
+    </div>
+    <div class="mb-img">
+      <img src="images/385a158252e8dd2a266e468b5039f5dc.jpg">
+      <div class="mb-label">Galaxy Brooch · Ziggy</div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ═══ CONCEPT ═══ -->
+<section>
+  <div class="section-label">01 — The Concept</div>
+  <div class="section-title">מה שנשאר אחרי הפיצוץ — הוא החומר שממנו נבנים כוכבים</div>
+
+  <div class="duality-grid">
+    <div class="duality-side dark">
+      <div>
+        <div class="duality-pair">
+          <div class="duality-word-big">Break</div>
+          <div class="duality-word-small">השבירה</div>
+        </div>
+        <div class="duality-pair">
+          <div class="duality-word-big">Scatter</div>
+          <div class="duality-word-small">הפיזור</div>
+        </div>
+        <div class="duality-pair">
+          <div class="duality-word-big">Fall</div>
+          <div class="duality-word-small">הנפילה</div>
+        </div>
+      </div>
+      <div class="duality-word-small" style="color:var(--ash)">Supernova — the collapse that seeds everything</div>
+    </div>
+
+    <div class="duality-divider"></div>
+
+    <div class="duality-side light">
+      <div>
+        <div class="duality-pair">
+          <div class="duality-word-big">Gather</div>
+          <div class="duality-word-small">האיסוף</div>
+        </div>
+        <div class="duality-pair">
+          <div class="duality-word-big">Mend</div>
+          <div class="duality-word-small">הריפוי</div>
+        </div>
+        <div class="duality-pair">
+          <div class="duality-word-big">Shine</div>
+          <div class="duality-word-small">הזוהר</div>
+        </div>
+      </div>
+      <div class="duality-word-small" style="color:var(--ash)">Kintsugi — the repair that becomes the masterpiece</div>
+    </div>
+  </div>
+
+  <p style="font-family:'Cormorant Garamond';font-style:italic;color:var(--dust);font-size:1.15rem;line-height:1.8;max-width:720px;margin-top:3rem;padding-right:1rem;">
+    כולנו קצת שבורים. כולנו נפלנו, איספנו את החתיכות, קמנו. הצלקות לא נמחקות — הן נשארות, הולכות איתנו, והן חלק ממה שהופך כל אחת ואחד מאיתנו ליצירה ייחודית ומהממת. הקולקציה הזאת היא לאהבה שעברה משהו — ויצאה ממנו יפה יותר.
+  </p>
+</section>
+
+<!-- ═══ COLOR PALETTE ═══ -->
+<section>
+  <div class="section-label">02 — Diamond Palette</div>
+  <div class="section-title">הצבעים שאנחנו לא רגילים לבחור</div>
+
+  <div class="palette-row">
+    <div class="swatch-block">
+      <div class="swatch s-black"></div>
+      <div class="swatch-name">Void Black</div>
+      <div class="swatch-sub">יהלום שחור</div>
+    </div>
+    <div class="swatch-block">
+      <div class="swatch s-graphite"></div>
+      <div class="swatch-name">Graphite</div>
+      <div class="swatch-sub">אפור כהה</div>
+    </div>
+    <div class="swatch-block">
+      <div class="swatch s-smoky"></div>
+      <div class="swatch-name">Smoky</div>
+      <div class="swatch-sub">אפור מעושן</div>
+    </div>
+    <div class="swatch-block">
+      <div class="swatch s-salt-pepper"></div>
+      <div class="swatch-name">Salt & Pepper</div>
+      <div class="swatch-sub">מלוכלך</div>
+    </div>
+    <div class="swatch-block">
+      <div class="swatch s-cognac"></div>
+      <div class="swatch-name">Cognac</div>
+      <div class="swatch-sub">חום עמוק</div>
+    </div>
+    <div class="swatch-block">
+      <div class="swatch s-champagne"></div>
+      <div class="swatch-name">Champagne</div>
+      <div class="swatch-sub">זהב עדין</div>
+    </div>
+  </div>
+  <p style="font-family:'Cormorant Garamond';font-size:1.1rem;font-style:italic;color:var(--silver);max-width:600px;line-height:1.7">
+    יהלומים שהעולם לא רגיל להציע לאהובים שלו. כהים, מורכבים, בלתי מושלמים — בדיוק כמו האהבה האמיתית.
+  </p>
+</section>
+
+<!-- ═══ DIAMOND SHAPES ═══ -->
+<section>
+  <div class="section-label">03 — Diamond Shapes</div>
+  <div class="section-title">צורות שמספרות סיפור</div>
+
+  <div class="shapes-row">
+
+    <!-- Round -->
+    <div class="shape-block">
+      <svg class="diamond-svg" width="80" height="80" viewBox="0 0 80 80">
+        <circle cx="40" cy="40" r="34" fill="none" stroke="#4a4a4a" stroke-width="0.5"/>
+        <circle cx="40" cy="40" r="34" fill="url(#dg1)"/>
+        <line x1="40" y1="6" x2="40" y2="74" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/>
+        <line x1="6" y1="40" x2="74" y2="40" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/>
+        <line x1="16" y1="16" x2="64" y2="64" stroke="rgba(201,168,76,0.1)" stroke-width="0.5"/>
+        <line x1="64" y1="16" x2="16" y2="64" stroke="rgba(201,168,76,0.1)" stroke-width="0.5"/>
+        <defs>
+          <radialGradient id="dg1" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#3a3a3a"/>
+            <stop offset="100%" stop-color="#0d0d0d"/>
+          </radialGradient>
+        </defs>
+      </svg>
+      <div class="shape-name">Round</div>
+    </div>
+
+    <!-- Oval -->
+    <div class="shape-block">
+      <svg class="diamond-svg" width="60" height="88" viewBox="0 0 60 88">
+        <ellipse cx="30" cy="44" rx="26" ry="40" fill="none" stroke="#4a4a4a" stroke-width="0.5"/>
+        <ellipse cx="30" cy="44" rx="26" ry="40" fill="url(#dg2)"/>
+        <line x1="30" y1="4" x2="30" y2="84" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/>
+        <line x1="4" y1="44" x2="56" y2="44" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/>
+        <defs>
+          <radialGradient id="dg2" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#4a4a4a"/>
+            <stop offset="100%" stop-color="#111"/>
+          </radialGradient>
+        </defs>
+      </svg>
+      <div class="shape-name">Oval</div>
+    </div>
+
+    <!-- Marquise -->
+    <div class="shape-block">
+      <svg class="diamond-svg" width="44" height="100" viewBox="0 0 44 100">
+        <path d="M22 2 Q44 50 22 98 Q0 50 22 2Z" fill="none" stroke="#4a4a4a" stroke-width="0.5"/>
+        <path d="M22 2 Q44 50 22 98 Q0 50 22 2Z" fill="url(#dg3)"/>
+        <defs>
+          <radialGradient id="dg3" cx="40%" cy="35%">
+            <stop offset="0%" stop-color="#5a5550"/>
+            <stop offset="100%" stop-color="#1a1a1a"/>
+          </radialGradient>
+        </defs>
+      </svg>
+      <div class="shape-name">Marquise</div>
+    </div>
+
+    <!-- Pear -->
+    <div class="shape-block">
+      <svg class="diamond-svg" width="56" height="96" viewBox="0 0 56 96">
+        <path d="M28 4 Q52 30 52 58 Q52 92 28 92 Q4 92 4 58 Q4 30 28 4Z" fill="none" stroke="#4a4a4a" stroke-width="0.5"/>
+        <path d="M28 4 Q52 30 52 58 Q52 92 28 92 Q4 92 4 58 Q4 30 28 4Z" fill="url(#dg4)"/>
+        <defs>
+          <radialGradient id="dg4" cx="40%" cy="30%">
+            <stop offset="0%" stop-color="#5a5550"/>
+            <stop offset="100%" stop-color="#1a1818"/>
+          </radialGradient>
+        </defs>
+      </svg>
+      <div class="shape-name">Pear</div>
+    </div>
+
+    <!-- Emerald -->
+    <div class="shape-block">
+      <svg class="diamond-svg" width="72" height="96" viewBox="0 0 72 96">
+        <rect x="8" y="4" width="56" height="88" rx="6" fill="none" stroke="#4a4a4a" stroke-width="0.5"/>
+        <rect x="8" y="4" width="56" height="88" rx="6" fill="url(#dg5)"/>
+        <rect x="18" y="14" width="36" height="68" rx="4" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/>
+        <defs>
+          <radialGradient id="dg5" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#4a4540"/>
+            <stop offset="100%" stop-color="#0d0d0d"/>
+          </radialGradient>
+        </defs>
+      </svg>
+      <div class="shape-name">Emerald</div>
+    </div>
+
+    <!-- Kite / Shield -->
+    <div class="shape-block">
+      <svg class="diamond-svg" width="64" height="96" viewBox="0 0 64 96">
+        <path d="M32 2 L62 36 L32 94 L2 36 Z" fill="none" stroke="#4a4a4a" stroke-width="0.5"/>
+        <path d="M32 2 L62 36 L32 94 L2 36 Z" fill="url(#dg6)"/>
+        <defs>
+          <radialGradient id="dg6" cx="40%" cy="30%">
+            <stop offset="0%" stop-color="#555"/>
+            <stop offset="100%" stop-color="#111"/>
+          </radialGradient>
+        </defs>
+      </svg>
+      <div class="shape-name">Kite</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ GRAVITATIONAL WAVES ═══ -->
+<section>
+  <div class="section-label">04 — The Second Metaphor</div>
+  <div class="section-title">הנפילה שלך שינתה את מרחב-הזמן</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+
+    <!-- Ripple visual -->
+    <div style="background:#05080a;border:1px solid #1a1a1a;position:relative;overflow:hidden;height:340px;display:flex;align-items:center;justify-content:center;">
+      <svg width="100%" height="100%" viewBox="0 0 500 340" style="position:absolute;inset:0;">
+        <!-- Still water surface suggestion -->
+        <rect width="500" height="340" fill="#050809"/>
+        <!-- Concentric ellipses - gravitational / water ripples -->
+        <ellipse cx="250" cy="170" rx="10"  ry="6"   fill="none" stroke="rgba(201,168,76,1)"    stroke-width="2"/>
+        <ellipse cx="250" cy="170" rx="28"  ry="18"  fill="none" stroke="rgba(201,168,76,0.85)" stroke-width="1.6"/>
+        <ellipse cx="250" cy="170" rx="50"  ry="31"  fill="none" stroke="rgba(201,168,76,0.68)" stroke-width="1.3"/>
+        <ellipse cx="250" cy="170" rx="76"  ry="47"  fill="none" stroke="rgba(201,168,76,0.52)" stroke-width="1.1"/>
+        <ellipse cx="250" cy="170" rx="105" ry="65"  fill="none" stroke="rgba(201,168,76,0.37)" stroke-width="0.9"/>
+        <ellipse cx="250" cy="170" rx="138" ry="85"  fill="none" stroke="rgba(201,168,76,0.24)" stroke-width="0.7"/>
+        <ellipse cx="250" cy="170" rx="174" ry="107" fill="none" stroke="rgba(201,168,76,0.14)" stroke-width="0.6"/>
+        <ellipse cx="250" cy="170" rx="214" ry="131" fill="none" stroke="rgba(201,168,76,0.07)" stroke-width="0.5"/>
+        <ellipse cx="250" cy="170" rx="255" ry="156" fill="none" stroke="rgba(201,168,76,0.03)" stroke-width="0.4"/>
+        <!-- Origin -->
+        <circle cx="250" cy="170" r="5" fill="#e8c97a" opacity="0.95"/>
+        <circle cx="250" cy="170" r="2" fill="white"/>
+        <!-- subtle glow -->
+        <circle cx="250" cy="170" r="18" fill="rgba(201,168,76,0.08)"/>
+      </svg>
+      <div style="position:absolute;bottom:1.2rem;left:1.5rem;font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,168,76,0.45);">Gravitational Waves · Spacetime Ripple</div>
+    </div>
+
+    <!-- Text -->
+    <div>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:300;line-height:1.85;color:var(--dust);">
+        כשגוף מסיבי מתמוטט ביקום — מתנגשות כוכביות נייטרון, מתפוצצות סופרנובות — הוא שולח גלי כבידה שמתעוותים בתוך מרקם המרחב-זמן עצמו. אדווה שמתקדמת במהירות האור לכל עבר.
+        <br><br>
+        הגל מהסופרנובה שהתרחשה לפני 1.3 מיליארד שנה הגיע לכדור הארץ ב-2015. לא נעלמה. לא מתה. <em>נסעה.</em>
+        <br><br>
+        הנפילה שלך שולחת גלים — לאנשים שאת אוהבת, לאמנות שתיצרי, לאנשים שעוד לא פגשת. ואת רגע ה"כן" — הוא גם גל. עובר אחורה ומשנה את כל מה שהיה, ומתקדם ומשנה את כל מה שיבוא.
+      </p>
+      <div style="margin-top:2rem;padding:1.5rem;border-right:2px solid rgba(201,168,76,0.3);background:rgba(201,168,76,0.03);">
+        <div style="font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;">מוטיב עיצובי אפשרי</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--silver);font-size:1rem;line-height:1.6;">עיגולים קונצנטריים שמתרחבים מנקודת מרכז — כמוטיב חריטה בתוך הטבעת, כטקסטורה על הלהב, כפאוה שמסודר בגלים.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ENAMEL PALETTE ═══ -->
+<section>
+  <div class="section-label">04b — Enamel · Color Moments</div>
+  <div class="section-title">הצבע שממלא את השבר</div>
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--silver);font-size:1.1rem;line-height:1.7;max-width:620px;margin-bottom:3rem;">
+    לא להוסיף צבע לטבעת — אלא למלא את קוויי הקינצוגי בצבע. הסדק הוא הנושא. 1-2 פריטים מתוך 15-20. צבעוניות עדינה, כמעט מוסתרת.
+  </p>
+
+  <div style="display:flex;gap:2rem;flex-wrap:wrap;align-items:center;margin-bottom:3rem;">
+
+    <!-- Enamel swatch: Midnight -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+      <div style="width:70px;height:70px;border-radius:2px;background:linear-gradient(135deg,#0d1a3a,#1a3060,#0a1228);box-shadow:inset 0 0 20px rgba(0,0,0,0.5);"></div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--silver);">Midnight</div>
+      <div style="font-size:0.7rem;font-style:italic;color:var(--ash);">כחול עמוק</div>
+    </div>
+
+    <!-- Enamel swatch: Nebula -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+      <div style="width:70px;height:70px;border-radius:2px;background:linear-gradient(135deg,#3d1060,#6b2898,#2a0840);box-shadow:inset 0 0 20px rgba(0,0,0,0.5);"></div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--silver);">Nebula</div>
+      <div style="font-size:0.7rem;font-style:italic;color:var(--ash);">סגול קוסמי</div>
+    </div>
+
+    <!-- Enamel swatch: Teal -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+      <div style="width:70px;height:70px;border-radius:2px;background:linear-gradient(135deg,#0a3838,#145555,#082828);box-shadow:inset 0 0 20px rgba(0,0,0,0.5);"></div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--silver);">Deep Teal</div>
+      <div style="font-size:0.7rem;font-style:italic;color:var(--ash);">ירוק-כחול עמוק</div>
+    </div>
+
+    <!-- Enamel swatch: Oxblood -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+      <div style="width:70px;height:70px;border-radius:2px;background:linear-gradient(135deg,#4a0a10,#7a1520,#380810);box-shadow:inset 0 0 20px rgba(0,0,0,0.5);"></div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--silver);">Oxblood</div>
+      <div style="font-size:0.7rem;font-style:italic;color:var(--ash);">אדום עמוק</div>
+    </div>
+
+    <!-- Enamel swatch: Smoke Green -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+      <div style="width:70px;height:70px;border-radius:2px;background:linear-gradient(135deg,#1a2a18,#2e4028,#121e10);box-shadow:inset 0 0 20px rgba(0,0,0,0.5);"></div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--silver);">Smoke Green</div>
+      <div style="font-size:0.7rem;font-style:italic;color:var(--ash);">ירוק מעושן</div>
+    </div>
+
+    <!-- + Gold (standard) -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;">
+      <div style="width:70px;height:70px;border-radius:2px;background:linear-gradient(135deg,#c9a84c,#a07830,#e8c97a);box-shadow:inset 0 0 20px rgba(0,0,0,0.3);"></div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--silver);">Gold Standard</div>
+      <div style="font-size:0.7rem;font-style:italic;color:var(--ash);">קינצוגי קלאסי</div>
+    </div>
+
+  </div>
+
+  <!-- Kintsugi ring with enamel demo -->
+  <div style="background:#080808;border:1px solid #1c1c1c;padding:3rem;display:flex;align-items:center;gap:4rem;flex-wrap:wrap;">
+    <svg width="200" height="220" viewBox="0 0 200 220">
+      <!-- Ring band -->
+      <ellipse cx="100" cy="190" rx="70" ry="16" fill="#0e0e0e"/>
+      <ellipse cx="100" cy="185" rx="70" ry="16" fill="#181818"/>
+      <rect x="30" y="60" width="140" height="130" rx="12" fill="#1a1a1a"/>
+      <!-- Round black diamond in setting -->
+      <circle cx="100" cy="80" r="55" fill="#0a0a0a"/>
+      <circle cx="100" cy="80" r="55" fill="none" stroke="#2a2a2a" stroke-width="4"/>
+      <circle cx="100" cy="80" r="48" fill="url(#blackDiamond)"/>
+      <!-- facets -->
+      <line x1="100" y1="32" x2="100" y2="128" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
+      <line x1="52" y1="80" x2="148" y2="80" stroke="rgba(201,168,76,0.08)" stroke-width="0.5"/>
+      <!-- Kintsugi cracks on the band with enamel -->
+      <path d="M45 140 L60 160 L75 155 L85 175" fill="none" stroke="#145555" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+      <path d="M115 148 L130 165 L145 158 L155 172" fill="none" stroke="#145555" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+      <path d="M65 170 L78 180 L88 175" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+      <!-- enamel nodes -->
+      <circle cx="60" cy="160" r="3.5" fill="#1a6b6b" opacity="0.9"/>
+      <circle cx="75" cy="155" r="2.5" fill="#145555" opacity="0.85"/>
+      <circle cx="130" cy="165" r="3" fill="#1a6b6b" opacity="0.8"/>
+      <defs>
+        <radialGradient id="blackDiamond" cx="38%" cy="32%">
+          <stop offset="0%" stop-color="#2a2a2a"/>
+          <stop offset="50%" stop-color="#111"/>
+          <stop offset="100%" stop-color="#080808"/>
+        </radialGradient>
+      </defs>
+    </svg>
+    <div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Concept Sketch</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;line-height:1.2;margin-bottom:1rem;">Black Diamond · Teal Enamel<br>Yellow Gold Kintsugi</div>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--silver);font-size:1rem;line-height:1.6;">הסדקים הם ה-canvas. הצבע הוא הסיפור.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COSMIC ═══ -->
+<section>
+  <div class="section-label">06 — Supernova</div>
+  <div class="section-title">מסופרנובה לצורה חדשה</div>
+
+  <div class="cosmic-bg">
+    <div class="supernova" id="supernova"></div>
+    <div class="cosmic-text">
+      <div class="cosmic-quote">
+        "A star doesn't just die.<br>
+        It explodes into everything<br>
+        it was ever meant to become.<br>
+        <span style="color:var(--gold-light)">And then — new stars.</span>"
+      </div>
+      <div class="cosmic-attr">The cosmology of Diana Rafael</div>
+    </div>
+  </div>
+
+  <div class="kintsugi-block">
+    <div class="kintsugi-visual">
+      <svg width="100%" height="100%" viewBox="0 0 400 300">
+        <!-- Background dark circle suggesting a broken vessel -->
+        <ellipse cx="200" cy="150" rx="140" ry="120" fill="#161616"/>
+        <!-- Crack lines in gold -->
+        <path d="M200 30 L185 90 L160 110 L140 180 L170 230 L200 270"
+              fill="none" stroke="url(#goldCrack)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M185 90 L220 115 L250 100 L310 140 L280 200"
+              fill="none" stroke="url(#goldCrack2)" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M160 110 L130 145 L100 160 L80 200"
+              fill="none" stroke="url(#goldCrack3)" stroke-width="1" stroke-linecap="round"/>
+        <path d="M250 100 L290 80 L330 90"
+              fill="none" stroke="url(#goldCrack)" stroke-width="0.8" stroke-linecap="round"/>
+        <!-- Glow dots at intersections -->
+        <circle cx="185" cy="90" r="3" fill="#c9a84c" opacity="0.8"/>
+        <circle cx="160" cy="110" r="2.5" fill="#c9a84c" opacity="0.7"/>
+        <circle cx="250" cy="100" r="2" fill="#c9a84c" opacity="0.6"/>
+        <circle cx="220" cy="115" r="1.5" fill="#e8c97a" opacity="0.9"/>
+        <defs>
+          <linearGradient id="goldCrack" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(201,168,76,0.3)"/>
+            <stop offset="50%" stop-color="rgba(232,201,122,0.9)"/>
+            <stop offset="100%" stop-color="rgba(201,168,76,0.4)"/>
+          </linearGradient>
+          <linearGradient id="goldCrack2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(232,201,122,0.6)"/>
+            <stop offset="100%" stop-color="rgba(201,168,76,0.3)"/>
+          </linearGradient>
+          <linearGradient id="goldCrack3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="rgba(201,168,76,0.5)"/>
+            <stop offset="100%" stop-color="rgba(201,168,76,0.2)"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+    <div class="kintsugi-text">
+      <div class="status-tag">Kintsugi — 金継ぎ</div>
+      <h3>השבר הופך<br>לחלק<br>היפה ביותר</h3>
+      <p>
+        האמנות היפנית של תיקון קרמיקה שבורה בלכה מעורבת בזהב.
+        הפילוסופיה: לא להסתיר את השבר — להנציח אותו. להפוך אותו לנקודת האור הבולטת ביותר.
+        <br><br>
+        הדבר שנשבר לא חוזר לפחות ממה שהיה — הוא חוזר ליפה יותר.
+        הצלקות לא נמחקות. הן הופכות לזהב.
+        <br><br>
+        כל אישה שלובשת טבעת מהקולקציה הזאת, לובשת את ההסכמה הזאת: <em>מה שעברתי הפך אותי.</em>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PHRASES ═══ -->
+<section>
+  <div class="section-label">05 — Collection Phrases</div>
+  <div class="section-title">מה שהקולקציה אומרת</div>
+  <p style="font-family:'Cormorant Garamond';font-style:italic;color:var(--silver);margin-bottom:3rem;font-size:1.1rem">
+    טיוטות ראשונות — לשיחה ולעידון
+  </p>
+
+  <div class="phrases-grid">
+
+    <!-- Phrase 1 — HERO -->
+    <div class="phrase-card" style="background:var(--smoke);border-top:1px solid rgba(201,168,76,0.4)">
+      <div class="status-tag" style="margin-bottom:1rem">Hero Line</div>
+      <div class="phrase-en">"You are not broken.<br>You are Kintsugi."</div>
+      <div class="phrase-he">את לא שבורה. את קינצוגי.</div>
+      <div class="phrase-note">Campaign headline · universal · empowering</div>
+    </div>
+
+    <!-- Phrase 2 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"She fell.<br>She gathered herself.<br>She rose."</div>
+      <div class="phrase-he">היא נפלה. היא אספה את עצמה. היא קמה.</div>
+      <div class="phrase-note">The full arc · brand story · campaign</div>
+    </div>
+
+    <!-- Phrase 3 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"The cracks are the best<br>part of the story."</div>
+      <div class="phrase-he">השברים הם החלק הכי טוב בסיפור.</div>
+      <div class="phrase-note">Kintsugi optimism · authenticity</div>
+    </div>
+
+    <!-- Phrase 4 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"Everyone carries fractures.<br>Not everyone wears them<br>with this much grace."</div>
+      <div class="phrase-he">לכולם יש שברים. לא לכולם יש את הכבוד ללבוש אותם.</div>
+      <div class="phrase-note">Universal · elevated · aspiration</div>
+    </div>
+
+    <!-- Phrase 5 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"The universe doesn't waste<br>a single broken star.<br>Neither do we."</div>
+      <div class="phrase-he">היקום לא מבזבז אף כוכב שבור. גם אנחנו לא.</div>
+      <div class="phrase-note">Cosmic rebirth · brand promise</div>
+    </div>
+
+    <!-- Phrase 6 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"For the love that<br>survived something real."</div>
+      <div class="phrase-he">לאהבה שעברה משהו אמיתי.</div>
+      <div class="phrase-note">Engagement angle · emotional depth · quiet</div>
+    </div>
+
+    <!-- Phrase 7 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"Your scars are not<br>evidence of damage.<br>They are proof of life."</div>
+      <div class="phrase-he">הצלקות שלך אינן עדות לנזק. הן הוכחה לחיים.</div>
+      <div class="phrase-note">Empowerment · healing · core message</div>
+    </div>
+
+    <!-- Phrase 8 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"Born dark.<br>Cut brilliant."</div>
+      <div class="phrase-he">נולד בחושך. גוּלף לזוהר.</div>
+      <div class="phrase-note">Product metaphor · diamond truth · concise</div>
+    </div>
+
+    <!-- Phrase 9 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"Wear the whole story.<br>The dark parts made you<br>extraordinary."</div>
+      <div class="phrase-he">לבשי את הסיפור השלם. החלקים הכהים הפכו אותך ליוצאת דופן.</div>
+      <div class="phrase-note">Audience empowerment · full narrative</div>
+    </div>
+
+    <!-- Phrase 10 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"After every supernova —<br>new stars."</div>
+      <div class="phrase-he">אחרי כל סופרנובה — כוכבים חדשים.</div>
+      <div class="phrase-note">Cosmic optimism · transformation · hopeful</div>
+    </div>
+
+    <!-- Phrase 11 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"A little broken.<br>Completely remarkable."</div>
+      <div class="phrase-he">קצת שבורה. לגמרי מדהימה.</div>
+      <div class="phrase-note">Universal truth · inclusive · warm</div>
+    </div>
+
+    <!-- Phrase 12 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"Dark stones.<br>Bright futures."</div>
+      <div class="phrase-he">אבנים כהות. עתיד בהיר.</div>
+      <div class="phrase-note">Product x optimism · contrast · tagline</div>
+    </div>
+
+    <!-- Phrase 13 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"The most unique diamond<br>is the one that<br>looks like no other."</div>
+      <div class="phrase-he">היהלום הכי ייחודי הוא זה שלא נראה כמו אף יהלום אחר.</div>
+      <div class="phrase-note">Product truth · individuality · anti-conventional</div>
+    </div>
+
+    <!-- Phrase 14 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"She picked herself up<br>off the floor.<br>Then she got the ring."</div>
+      <div class="phrase-he">היא קמה מהרצפה. ואז היא קיבלה את הטבעת.</div>
+      <div class="phrase-note">Narrative arc · storytelling · empowered</div>
+    </div>
+
+    <!-- Phrase 15 — Social / Short -->
+    <div class="phrase-card">
+      <div class="phrase-en">"Gathered from the wreckage.<br>More beautiful than before."</div>
+      <div class="phrase-he">אוסף מההריסות. יפה יותר מאי פעם.</div>
+      <div class="phrase-note">Social-ready · kintsugi · transformative</div>
+    </div>
+
+    <!-- Phrase 16 -->
+    <div class="phrase-card">
+      <div class="phrase-en">"For every woman who<br>knows what it took<br>to get here."</div>
+      <div class="phrase-he">לכל אישה שיודעת מה עלה לה להגיע לכאן.</div>
+      <div class="phrase-note">Intimate · knowing · deep audience connection</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="hr-gold" style="max-width:1400px;margin:0 auto;opacity:0.2">
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer-note">
+  <p>Diana Rafael · Collection Moodboard · Working Document · 2026</p>
+  <p style="margin-top:0.5rem;color:#2a2a2a">Built with Claude Code</p>
+</div>
+
+<script>
+  // Generate stars
+  const container = document.getElementById('stars');
+  for (let i = 0; i < 160; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = Math.random() * 2 + 0.3;
+    const minO = (0.05 + Math.random() * 0.2).toFixed(2);
+    const maxO = (parseFloat(minO) + 0.2 + Math.random() * 0.4).toFixed(2);
+    const dur = (3 + Math.random() * 6).toFixed(1) + 's';
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      --min:${minO}; --max:${maxO}; --d:${dur};
+      animation-delay:${(Math.random()*6).toFixed(1)}s;
+    `;
+    container.appendChild(s);
+  }
+
+  // Build supernova
+  const sn = document.getElementById('supernova');
+  for (let i = 1; i <= 5; i++) {
+    const ring = document.createElement('div');
+    ring.className = 'supernova-ring';
+    const sz = i * 38;
+    ring.style.cssText = `width:${sz}px;height:${sz}px;margin-left:${-sz/2}px;margin-top:${-sz/2}px;opacity:${0.6-i*0.1}`;
+    sn.appendChild(ring);
+  }
+  const core = document.createElement('div');
+  core.className = 'supernova-core';
+  sn.appendChild(core);
+  for (let i = 0; i < 12; i++) {
+    const ray = document.createElement('div');
+    ray.className = 'supernova-ray';
+    const len = 30 + Math.random() * 60;
+    ray.style.cssText = `width:${len}px;margin-left:0;margin-top:-0.5px;transform:rotate(${i*30}deg);opacity:${0.2+Math.random()*0.3}`;
+    sn.appendChild(ray);
+  }
+</script>
+
+</body>
+</html>
