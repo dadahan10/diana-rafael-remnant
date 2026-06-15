@@ -667,6 +667,244 @@
   </div>
 </div>
 
+<!-- ═══ PRODUCTION TRACKER ═══ -->
+<style>
+  .track-wrap { background:#0c0c0c; padding:5rem 4rem; border-top:1px solid var(--smoke); border-bottom:1px solid var(--smoke); }
+  .track-legend { display:flex; gap:1.8rem; flex-wrap:wrap; margin-top:1.5rem; font-family:'Montserrat',sans-serif; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--silver); }
+  .track-legend span { display:inline-flex; align-items:center; gap:0.5rem; }
+  .track-scroll { overflow-x:auto; margin-top:2.5rem; }
+  table.track { border-collapse:collapse; width:100%; min-width:1180px; font-family:'Montserrat',sans-serif; }
+  table.track th { font-weight:300; font-size:0.5rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); padding:0.9rem 0.5rem; border-bottom:1px solid rgba(201,168,76,0.25); text-align:center; vertical-align:bottom; line-height:1.4; }
+  table.track td { padding:0.85rem 0.5rem; border-bottom:1px solid #1a1a1a; text-align:center; color:var(--dust); font-size:0.65rem; }
+  table.track td.name { text-align:right; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.98rem; color:var(--bone); white-space:nowrap; padding-right:0.3rem; }
+  table.track td.name small { font-family:'Montserrat',sans-serif; font-style:normal; font-size:0.48rem; letter-spacing:0.2em; color:var(--ash); display:block; }
+  table.track tr:hover td { background:rgba(255,255,255,0.018); }
+  .st { display:inline-block; width:13px; height:13px; border-radius:50%; }
+  .st-done { background:var(--gold); box-shadow:0 0 8px rgba(201,168,76,0.4); }
+  .st-wip  { background:transparent; border:1.5px solid var(--gold); }
+  .st-none { background:transparent; border:1px solid #383838; }
+
+  /* per-ring sections */
+  .ring-section { max-width:1400px; margin:0 auto; padding:4rem; border-bottom:1px solid #1a1a1a; }
+  .ring-section-head { display:flex; align-items:center; gap:1.8rem; margin-bottom:2.2rem; }
+  .ring-thumb { width:110px; height:110px; object-fit:cover; background:#f0ede8; border:1px solid var(--smoke); flex-shrink:0; }
+  .ring-num { font-family:'Montserrat',sans-serif; font-weight:200; font-size:0.55rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:0.5rem; }
+  .ring-title { font-family:'Cormorant Garamond',serif; font-weight:300; font-style:italic; font-size:clamp(1.7rem,3vw,2.6rem); color:var(--bone); line-height:1; }
+  .ring-concept { font-family:'Montserrat',sans-serif; font-weight:200; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--ash); margin-top:0.6rem; line-height:1.6; }
+  .ring-parts { display:grid; grid-template-columns:repeat(5,1fr); gap:2px; }
+  .ring-part { background:var(--charcoal); padding:1.8rem 1.2rem; min-height:150px; display:flex; flex-direction:column; gap:0.9rem; }
+  .part-label { font-family:'Montserrat',sans-serif; font-weight:300; font-size:0.5rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); }
+  .part-ph { font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--ash); font-size:0.92rem; flex:1; display:flex; align-items:center; line-height:1.4; }
+
+  @media (max-width:768px) {
+    .track-wrap { padding:3rem 1.5rem; }
+    .ring-section { padding:2.5rem 1.5rem; }
+    .ring-parts { grid-template-columns:1fr 1fr; }
+    .ring-section-head { gap:1rem; }
+    .ring-thumb { width:72px; height:72px; }
+  }
+</style>
+
+<div class="track-wrap">
+  <div class="section-label">Production · מעקב הפקה</div>
+  <div class="section-title" style="margin-bottom:0;">לוח המעקב של הקולקציה</div>
+  <div class="track-legend">
+    <span><span class="st st-done"></span> הושלם</span>
+    <span><span class="st st-wip"></span> בעבודה</span>
+    <span><span class="st st-none"></span> טרם התחלנו</span>
+  </div>
+
+  <div class="track-scroll">
+    <table class="track">
+      <thead>
+        <tr>
+          <th style="text-align:right;">טבעת</th>
+          <th>עיצוב<br>ראשי</th>
+          <th>וריאציות<br>ראשי</th>
+          <th>עיצוב נגזר<br>(נישואין)</th>
+          <th>מפרט<br>ראשי</th>
+          <th>מפרט<br>נגזר</th>
+          <th>סיפור<br>מוצר</th>
+          <th>תוכן<br>ויזואלי</th>
+          <th>תוכן<br>שיווקי</th>
+          <th>דף מוצר<br>אתר</th>
+          <th>דף מוצר<br>אטסי</th>
+          <th>מחיר<br>$</th>
+          <th>מחיר<br>₪</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="name">Gravitational Wave <small>No.1</small></td><td><span class="st st-wip"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td>—</td><td>—</td></tr>
+        <tr><td class="name">Formation <small>No.2</small></td><td><span class="st st-wip"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td>—</td><td>—</td></tr>
+        <tr><td class="name">Accretion <small>No.3</small></td><td><span class="st st-wip"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td>—</td><td>—</td></tr>
+        <tr><td class="name">Disturbed <small>No.4</small></td><td><span class="st st-wip"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td>—</td><td>—</td></tr>
+        <tr><td class="name">Smoothen <small>No.5</small></td><td><span class="st st-wip"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td>—</td><td>—</td></tr>
+        <tr><td class="name">Craquelere <small>No.6</small></td><td><span class="st st-wip"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td>—</td><td>—</td></tr>
+        <tr><td class="name">Kintsugi <small>No.7</small></td><td><span class="st st-wip"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td>—</td><td>—</td></tr>
+        <tr><td class="name">Starz <small>No.8</small></td><td><span class="st st-wip"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td>—</td><td>—</td></tr>
+        <tr><td class="name">Cosmic Web <small>No.9</small></td><td><span class="st st-wip"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td>—</td><td>—</td></tr>
+        <tr><td class="name">1339 <small>No.10</small></td><td><span class="st st-wip"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td><span class="st st-none"></span></td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══ PER-RING SECTIONS ═══ -->
+<div style="background:var(--black);">
+  <div class="section-label" style="max-width:1400px;margin:0 auto;padding:5rem 4rem 0;">Per-Piece · סקשן לכל תכשיט</div>
+
+  <!-- No.1 — Gravitational Wave -->
+  <section class="ring-section">
+    <div class="ring-section-head">
+      <img class="ring-thumb" src="images/collection/ring-01-gravitational-wave.png" alt="Gravitational Wave">
+      <div><div class="ring-num">No.1 · Engagement</div><h2 class="ring-title">Gravitational Wave</h2><div class="ring-concept">חותם · דאבל הייל · גלי כבידה</div></div>
+    </div>
+    <div class="ring-parts">
+      <div class="ring-part"><div class="part-label">תמונות אירוסין</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">תמונות נישואין (סט)</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">סיפור · HE / EN</div><div class="part-ph">טרם נכתב</div></div>
+      <div class="ring-part"><div class="part-label">מפרט טכני</div><div class="part-ph">טרם הוגדר</div></div>
+      <div class="ring-part"><div class="part-label">מחיר</div><div class="part-ph">$ — / ₪ —</div></div>
+    </div>
+  </section>
+
+  <!-- No.2 — Formation -->
+  <section class="ring-section">
+    <div class="ring-section-head">
+      <img class="ring-thumb" src="images/collection/ring-02-formation.png" alt="Formation">
+      <div><div class="ring-num">No.2 · Engagement</div><h2 class="ring-title">Formation</h2><div class="ring-concept">יהלומי צד שחורים · רוז גולד</div></div>
+    </div>
+    <div class="ring-parts">
+      <div class="ring-part"><div class="part-label">תמונות אירוסין</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">תמונות נישואין (סט)</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">סיפור · HE / EN</div><div class="part-ph">טרם נכתב</div></div>
+      <div class="ring-part"><div class="part-label">מפרט טכני</div><div class="part-ph">טרם הוגדר</div></div>
+      <div class="ring-part"><div class="part-label">מחיר</div><div class="part-ph">$ — / ₪ —</div></div>
+    </div>
+  </section>
+
+  <!-- No.3 — Accretion -->
+  <section class="ring-section">
+    <div class="ring-section-head">
+      <img class="ring-thumb" src="images/collection/ring-03-accretion.png" alt="Accretion">
+      <div><div class="ring-num">No.3 · Engagement</div><h2 class="ring-title">Accretion</h2><div class="ring-concept">רוז גולד · דיסק שחור · יהלום לבן מרכזי</div></div>
+    </div>
+    <div class="ring-parts">
+      <div class="ring-part"><div class="part-label">תמונות אירוסין</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">תמונות נישואין (סט)</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">סיפור · HE / EN</div><div class="part-ph">טרם נכתב</div></div>
+      <div class="ring-part"><div class="part-label">מפרט טכני</div><div class="part-ph">טרם הוגדר</div></div>
+      <div class="ring-part"><div class="part-label">מחיר</div><div class="part-ph">$ — / ₪ —</div></div>
+    </div>
+  </section>
+
+  <!-- No.4 — Disturbed -->
+  <section class="ring-section">
+    <div class="ring-section-head">
+      <img class="ring-thumb" src="images/collection/ring-04-disturbed.png" alt="Disturbed">
+      <div><div class="ring-num">No.4 · Engagement</div><h2 class="ring-title">Disturbed</h2><div class="ring-concept">זהב צהוב · מרקיזה שחורה · להב מצולקת</div></div>
+    </div>
+    <div class="ring-parts">
+      <div class="ring-part"><div class="part-label">תמונות אירוסין</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">תמונות נישואין (סט)</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">סיפור · HE / EN</div><div class="part-ph">טרם נכתב</div></div>
+      <div class="ring-part"><div class="part-label">מפרט טכני</div><div class="part-ph">טרם הוגדר</div></div>
+      <div class="ring-part"><div class="part-label">מחיר</div><div class="part-ph">$ — / ₪ —</div></div>
+    </div>
+  </section>
+
+  <!-- No.5 — Smoothen -->
+  <section class="ring-section">
+    <div class="ring-section-head">
+      <img class="ring-thumb" src="images/collection/ring-06-smoothen.png" alt="Smoothen">
+      <div><div class="ring-num">No.5 · Engagement</div><h2 class="ring-title">Smoothen</h2><div class="ring-concept">רוז גולד · אבן אובלית כהה · להב עגלגל</div></div>
+    </div>
+    <div class="ring-parts">
+      <div class="ring-part"><div class="part-label">תמונות אירוסין</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">תמונות נישואין (סט)</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">סיפור · HE / EN</div><div class="part-ph">טרם נכתב</div></div>
+      <div class="ring-part"><div class="part-label">מפרט טכני</div><div class="part-ph">טרם הוגדר</div></div>
+      <div class="ring-part"><div class="part-label">מחיר</div><div class="part-ph">$ — / ₪ —</div></div>
+    </div>
+  </section>
+
+  <!-- No.6 — Craquelere -->
+  <section class="ring-section">
+    <div class="ring-section-head">
+      <img class="ring-thumb" src="images/collection/ring-09-craquelere.png" alt="Craquelere" style="background:#e8e4df;">
+      <div><div class="ring-num">No.6 · Engagement</div><h2 class="ring-title">Craquelere</h2><div class="ring-concept">להב רחב · דוגמת קראקלה · קרמיקה שסדוקה</div></div>
+    </div>
+    <div class="ring-parts">
+      <div class="ring-part"><div class="part-label">תמונות אירוסין</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">תמונות נישואין (סט)</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">סיפור · HE / EN</div><div class="part-ph">טרם נכתב</div></div>
+      <div class="ring-part"><div class="part-label">מפרט טכני</div><div class="part-ph">טרם הוגדר</div></div>
+      <div class="ring-part"><div class="part-label">מחיר</div><div class="part-ph">$ — / ₪ —</div></div>
+    </div>
+  </section>
+
+  <!-- No.7 — Kintsugi -->
+  <section class="ring-section">
+    <div class="ring-section-head">
+      <img class="ring-thumb" src="images/collection/ring-05-kintsugi.jpg" alt="Kintsugi">
+      <div><div class="ring-num">No.7 · Engagement</div><h2 class="ring-title">Kintsugi</h2><div class="ring-concept">פס כסף רחב · קווי זהב פורצים</div></div>
+    </div>
+    <div class="ring-parts">
+      <div class="ring-part"><div class="part-label">תמונות אירוסין</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">תמונות נישואין (סט)</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">סיפור · HE / EN</div><div class="part-ph">טרם נכתב</div></div>
+      <div class="ring-part"><div class="part-label">מפרט טכני</div><div class="part-ph">טרם הוגדר</div></div>
+      <div class="ring-part"><div class="part-label">מחיר</div><div class="part-ph">$ — / ₪ —</div></div>
+    </div>
+  </section>
+
+  <!-- No.8 — Starz -->
+  <section class="ring-section">
+    <div class="ring-section-head">
+      <img class="ring-thumb" src="images/collection/ring-07-starz.png" alt="Starz">
+      <div><div class="ring-num">No.8 · Engagement</div><h2 class="ring-title">Starz</h2><div class="ring-concept">פס חלק · חיתוכי כוכבים עוברים דרך המתכת</div></div>
+    </div>
+    <div class="ring-parts">
+      <div class="ring-part"><div class="part-label">תמונות אירוסין</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">תמונות נישואין (סט)</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">סיפור · HE / EN</div><div class="part-ph">טרם נכתב</div></div>
+      <div class="ring-part"><div class="part-label">מפרט טכני</div><div class="part-ph">טרם הוגדר</div></div>
+      <div class="ring-part"><div class="part-label">מחיר</div><div class="part-ph">$ — / ₪ —</div></div>
+    </div>
+  </section>
+
+  <!-- No.9 — Cosmic Web -->
+  <section class="ring-section">
+    <div class="ring-section-head">
+      <img class="ring-thumb" src="images/collection/ring-08-cosmic-web.png" alt="Cosmic Web" style="background:#e8e4df;">
+      <div><div class="ring-num">No.9 · Engagement</div><h2 class="ring-title">Cosmic Web</h2><div class="ring-concept">פס · רשת קוסמית פנימית</div></div>
+    </div>
+    <div class="ring-parts">
+      <div class="ring-part"><div class="part-label">תמונות אירוסין</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">תמונות נישואין (סט)</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">סיפור · HE / EN</div><div class="part-ph">טרם נכתב</div></div>
+      <div class="ring-part"><div class="part-label">מפרט טכני</div><div class="part-ph">טרם הוגדר</div></div>
+      <div class="ring-part"><div class="part-label">מחיר</div><div class="part-ph">$ — / ₪ —</div></div>
+    </div>
+  </section>
+
+  <!-- No.10 — 1339 -->
+  <section class="ring-section">
+    <div class="ring-section-head">
+      <img class="ring-thumb" src="images/collection/ring-10-1339.jpg" alt="1339">
+      <div><div class="ring-num">No.10 · Engagement</div><h2 class="ring-title">1339</h2><div class="ring-concept">קרינה מנקודת אפס · עיגולים בקצוות</div></div>
+    </div>
+    <div class="ring-parts">
+      <div class="ring-part"><div class="part-label">תמונות אירוסין</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">תמונות נישואין (סט)</div><div class="part-ph">טרם הופק</div></div>
+      <div class="ring-part"><div class="part-label">סיפור · HE / EN</div><div class="part-ph">טרם נכתב</div></div>
+      <div class="ring-part"><div class="part-label">מפרט טכני</div><div class="part-ph">טרם הוגדר</div></div>
+      <div class="ring-part"><div class="part-label">מחיר</div><div class="part-ph">$ — / ₪ —</div></div>
+    </div>
+  </section>
+
+</div>
+
 <!-- ═══ VISUAL MOODBOARD GRID ═══ -->
 <div style="background:var(--black);">
 
