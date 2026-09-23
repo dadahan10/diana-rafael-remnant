@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REMNANT — Diana Rafael</title>
+<meta name="description" content="REMNANT, the 2026 engagement collection by Diana Rafael. Whole, not perfect.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@200;300;400&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --black:#0a0a0a; --deep:#111; --charcoal:#1c1c1c; --smoke:#2e2e2e; --ash:#4a4a4a;
+    --silver:#8a8a8a; --dust:#b8b0a8; --bone:#d4cdc6; --gold:#c9a84c; --gold-light:#e8c97a;
+  }
+  html { scroll-behavior:smooth; }
+  body { background:var(--black); color:var(--bone); font-family:'Cormorant Garamond',serif; overflow-x:hidden; }
+  .label { font-family:'Montserrat',sans-serif; font-weight:200; font-size:.62rem; letter-spacing:.45em; text-transform:uppercase; color:var(--gold); }
+  section { padding:6rem 4rem; max-width:1200px; margin:0 auto; }
+  @media (max-width:700px){ section{ padding:4rem 1.25rem; } }
+  h2 { font-size:clamp(2rem,4vw,3.2rem); font-weight:300; line-height:1.1; margin:1.2rem 0 2.2rem; }
+  p { font-size:clamp(1.05rem,1.6vw,1.3rem); font-weight:300; line-height:1.7; color:var(--dust); max-width:64ch; }
+  p + p { margin-top:1.2rem; }
+  em { color:var(--gold-light); font-style:italic; }
+
+  /* hero: video when images/onepager/hero.mp4 exists, otherwise the jewels drift as stars */
+  .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; }
+  .hero video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1.5s; z-index:1; }
+  .hero.has-video video { opacity:.8; }
+  .hero::before { content:''; position:absolute; inset:0; background:
+    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(58,95,217,.10), transparent 60%),
+    radial-gradient(ellipse 40% 50% at 75% 25%, rgba(107,63,160,.10), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 30% 60%, rgba(201,168,76,.05), transparent 70%),
+    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(20,20,20,.92), var(--black) 100%); }
+  .stars { position:absolute; inset:0; }
+  .star { position:absolute; background:#fff; border-radius:50%; animation:tw var(--d) ease-in-out infinite alternate; }
+  @keyframes tw { from{opacity:var(--min)} to{opacity:var(--max); transform:scale(1.4)} }
+  .hero-content { position:relative; z-index:2; padding:0 1.25rem; text-shadow:0 2px 30px rgba(0,0,0,.8); }
+  .brand { font-weight:300; font-size:clamp(.9rem,2vw,1.3rem); letter-spacing:.5em; color:var(--silver); text-transform:uppercase; margin-bottom:1.5rem; }
+  .title { font-weight:300; font-size:clamp(3.2rem,9vw,7.5rem); line-height:.9; letter-spacing:-.02em; font-style:italic; color:var(--gold); }
+  .sub { font-weight:300; font-size:clamp(.75rem,1.4vw,1rem); letter-spacing:.3em; color:var(--ash); text-transform:uppercase; margin-top:2rem; }
+
+  /* quotes inside the hero: Cohen above the name, the manifesto below it */
+  .hero { padding:6rem 0; }
+  .epigraph { margin:0 auto 4rem; max-width:60ch; }
+  .epigraph span { display:block; }
+  .epigraph .l1 { font-size:clamp(1rem,1.7vw,1.3rem); font-weight:300; font-style:italic; color:var(--silver); letter-spacing:.02em; }
+  .epigraph .l2 { font-size:clamp(1.3rem,2.4vw,1.9rem); font-weight:400; font-style:italic; color:var(--bone); margin-top:.3rem; }
+  .epigraph .l3 { font-size:clamp(1.15rem,2vw,1.6rem); font-weight:400; color:var(--dust); line-height:1.35; margin-top:1.6rem; letter-spacing:.01em; }
+  .epigraph .l4 { font-size:clamp(2.6rem,6.5vw,5.2rem); font-weight:400; color:var(--gold-light); line-height:1.05; margin-top:1.4rem; letter-spacing:-.01em; text-shadow:0 0 60px rgba(201,168,76,.35); }
+  .epigraph .l4 em { font-style:italic; color:var(--gold); }
+  @media (min-width:700px){ .epigraph .l4 { white-space:nowrap; } }
+  .title { margin-top:1rem; }
+  .sub { margin-top:1.2rem; }
+  .hero .by { display:block; font-family:'Montserrat',sans-serif; font-weight:200; font-style:normal; font-size:.58rem; letter-spacing:.35em; text-transform:uppercase; color:var(--ash); margin-top:1.2rem; }
+
+  /* crack divider */
+  .crack { height:70px; }
+  .crack svg { width:100%; height:70px; display:block; }
+
+  /* story: magazine spreads, one per source of inspiration */
+  .spread { display:grid; grid-template-columns:7fr 5fr; gap:3rem; align-items:center; margin-top:5rem; }
+  .spread:nth-child(even) { grid-template-columns:5fr 7fr; }
+  .spread:nth-child(even) figure { order:2; }
+  .spread figure { margin:0; position:relative; max-width:75%; }
+  .spread:nth-child(even) figure { justify-self:end; }
+  .spread figure img { width:100%; aspect-ratio:4/5; object-fit:cover; display:block; filter:saturate(.85); border:1px solid var(--smoke); }
+  /* whispers: quotes as quiet asides, never the main text */
+  .whisper { font-style:italic; font-weight:300; color:var(--dust); line-height:1.5; }
+  .whisper::before { content:'\201C'; color:var(--gold); margin-right:.05em; }
+  .whisper::after { content:'\201D'; color:var(--gold); margin-left:.05em; }
+  .spread figure .whisper { display:block; font-size:1.15rem; margin-top:1rem; padding-left:.9rem; border-left:1px solid rgba(201,168,76,.5); }
+  .whisper.solo { font-size:clamp(1.2rem,1.9vw,1.5rem); max-width:44ch; margin:2.6rem 0 0; padding-left:1rem; border-left:1px solid rgba(201,168,76,.5); }
+  .spread .num { font-family:'Cormorant Garamond',serif; font-size:5rem; font-weight:300; line-height:1; color:var(--gold); opacity:.55; }
+  .spread .k { font-family:'Montserrat',sans-serif; font-weight:200; font-size:.58rem; letter-spacing:.4em; text-transform:uppercase; color:var(--silver); margin:.4rem 0 1rem; }
+  .spread h3 { font-size:clamp(2rem,3.4vw,2.8rem); font-weight:300; line-height:1.05; margin-bottom:1.2rem; }
+  .spread .pull { font-size:1.3rem; font-style:italic; color:var(--gold-light); line-height:1.4; margin-bottom:1.2rem; border-left:1px solid var(--gold); padding-left:1rem; }
+  .spread p { font-size:1.08rem; line-height:1.65; }
+  .spread p:first-of-type::first-letter { font-size:3.2em; float:left; line-height:.8; padding:.1em .12em 0 0; color:var(--gold); font-weight:300; }
+  @media (max-width:800px){ .spread, .spread:nth-child(even) { grid-template-columns:1fr; gap:1.6rem; margin-top:3.5rem; } .spread:nth-child(even) figure { order:0; } .spread figure figcaption { position:static; margin-top:.6rem; } }
+
+  /* values */
+  .values { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2.5rem 2rem; margin-top:1rem; }
+  .value h3 { font-size:clamp(1.6rem,2.6vw,2.2rem); font-weight:300; line-height:1.05; letter-spacing:-.01em; }
+  .value h3 span { display:block; color:var(--gold); }
+  .value p { font-size:1rem; margin-top:.8rem; }
+
+  /* designs */
+  .design { border-top:1px solid var(--smoke); padding:3.5rem 0; display:grid; grid-template-columns:minmax(220px,1fr) 2fr; gap:2.5rem; align-items:start; }
+  @media (max-width:800px){ .design{ grid-template-columns:1fr; gap:1.5rem; } }
+  .design .no { font-family:'Montserrat',sans-serif; font-weight:200; font-size:.58rem; letter-spacing:.35em; text-transform:uppercase; color:var(--gold); margin-bottom:.8rem; }
+  .design h3 { font-size:clamp(1.8rem,3vw,2.6rem); font-weight:300; line-height:1; margin-bottom:1rem; }
+  .design p { font-size:1.05rem; }
+  .shots { display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; }
+  @media (max-width:500px){ .shots{ grid-template-columns:1fr; } }
+  .shot { aspect-ratio:1/1; background:var(--deep); border:1px solid var(--smoke); position:relative; overflow:hidden; }
+  .shot img { width:100%; height:100%; object-fit:cover; display:block; }
+  .shot .cap { position:absolute; left:0; right:0; bottom:0; padding:.6rem .8rem; font-family:'Montserrat',sans-serif; font-weight:300; font-size:.55rem; letter-spacing:.25em; text-transform:uppercase; color:var(--silver); background:linear-gradient(transparent,rgba(0,0,0,.75)); }
+  .shot.empty::before { content:''; position:absolute; inset:0; background:
+    radial-gradient(ellipse 60% 60% at 50% 45%, rgba(201,168,76,.07), transparent 70%); }
+
+  /* language toggle */
+  .lang { position:fixed; top:1rem; right:1rem; z-index:20; font-family:'Montserrat',sans-serif; font-weight:300; font-size:.7rem; letter-spacing:.15em; color:var(--gold); text-decoration:none; border:1px solid rgba(201,168,76,.5); padding:.45rem .9rem; border-radius:2px; background:rgba(10,10,10,.6); backdrop-filter:blur(4px); }
+  .lang:hover { background:rgba(201,168,76,.12); }
+
+  /* footer */
+  footer { border-top:1px solid var(--smoke); padding:5rem 1.25rem; text-align:center; }
+  footer .promise { font-size:clamp(1.2rem,2.2vw,1.7rem); font-weight:300; font-style:italic; max-width:40ch; margin:1.2rem auto 2rem; }
+  footer a { color:var(--gold); text-decoration:none; letter-spacing:.2em; font-family:'Montserrat',sans-serif; font-weight:300; font-size:.7rem; text-transform:uppercase; border-bottom:1px solid rgba(201,168,76,.35); padding-bottom:.2rem; }
+  footer .fine { font-family:'Montserrat',sans-serif; font-weight:200; font-size:.58rem; letter-spacing:.3em; text-transform:uppercase; color:var(--ash); margin-top:3rem; }
+</style>
+</head>
+<body>
+<a class="lang" href="collection-he.html">עברית</a>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="stars" id="stars"></div>
+  <video muted loop playsinline autoplay preload="metadata" poster="" aria-hidden="true">
+    <source src="images/onepager/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <blockquote class="epigraph">
+      <span class="l1">For a star to be born, there is one thing that must happen:</span>
+      <span class="l2">a gaseous nebula must collapse.</span>
+      <span class="l3">So collapse. Crumble.<br>This is not your destruction.</span>
+      <span class="l4">This is <em>your birth</em>.</span>
+      <span class="by">— r.h. sin</span>
+    </blockquote>
+    <div class="title">Remnant</div>
+    <div class="sub">New Collection by Diana Rafael</div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section id="story">
+  <div class="label">The Story</div>
+  <h2>What remains, <em>becomes</em>.</h2>
+  <p>REMNANT was born from a personal chapter of breaking and loss. What came after was not a return to how things were. It was the slow work of gathering the pieces and joining them into something whole again: not perfect, newer than before, and still carrying its scars and the stories they tell.</p>
+  <p>That is the collection. Every piece holds a fracture that was not hidden, but made the point.</p>
+  <div class="whisper solo">The wound is where the light enters.</div>
+
+  <div class="spread">
+    <figure><img src="images/onepager/kintsugi.jpg" alt="A broken teapot lid mended with gold, kintsugi"><span class="whisper">There is a crack in everything. That's how the light gets in.</span></figure>
+    <div>
+      <div class="num">01</div>
+      <div class="k">Kintsugi</div>
+      <h3>Repaired <em>in gold</em>.</h3>
+      <div class="pull">The break is not concealed. It becomes the most precious line in the object.</div>
+      <p>The Japanese art of mending broken ceramics with gold. A bowl that shattered is not thrown away and not disguised. Its seams are filled with gold, so that the history of the break is the first thing you see, and the most beautiful.</p>
+      <p>That is how we think about every piece in REMNANT. The fracture is the design.</p>
+    </div>
+  </div>
+
+  <div class="spread">
+    <figure><img src="images/onepager/supernova.jpg" alt="A supernova remnant: rings of glowing gas around a collapsed star"><span class="whisper">You need chaos in you to give birth to a dancing star.</span></figure>
+    <div>
+      <div class="num">02</div>
+      <div class="k">Supernova</div>
+      <h3>A star that <em>collapses</em>.</h3>
+      <div class="pull">The end of one thing is the raw material of the next.</div>
+      <p>When a star can no longer hold itself together, it collapses and explodes. Its matter is thrown across space. And over time, that scattered matter gathers again, pulled together by its own gravity, into a new star, a new world.</p>
+      <p>What remains after the explosion is what the next thing is made of. The collection takes its name from this.</p>
+    </div>
+  </div>
+
+  <div class="spread">
+    <figure><img src="images/onepager/solarwind.jpg" alt="The sun erupting a solar flare from its edge"><span class="whisper">The phoenix must burn to emerge.</span></figure>
+    <div>
+      <div class="num">03</div>
+      <div class="k">Solar wind</div>
+      <h3>Particles that <em>give life</em>.</h3>
+      <div class="pull">What looks like violence is also what carries the ingredients of life.</div>
+      <p>Eruptions on the surface of a sun send streams of particles out across its whole system. On a planet far away they light up the sky, and they carry with them the elements that life is built from.</p>
+      <p>The rays of Sunburst and the drifting stones of Formation come from here: something leaving its center, and arriving somewhere as light.</p>
+    </div>
+  </div>
+
+  <div class="spread">
+    <figure><img src="images/onepager/craquelure.jpg" alt="Detail of a Renaissance portrait, its surface covered in fine craquelure"><span class="whisper">Behind every beautiful thing, some kind of pain.</span></figure>
+    <div>
+      <div class="num">04</div>
+      <div class="k">Craquelure</div>
+      <h3>A map <em>of cracks</em>.</h3>
+      <div class="pull">Each line is a moment of stress that held.</div>
+      <p>On a painting five hundred years old, time draws a fine web of cracks across the surface. None of them broke the picture. Together they are a record of everything it went through, and they are what make an old masterpiece impossible to fake.</p>
+      <p>Craquelere, the sixth design, wears that web across a wide blade of gold.</p>
+    </div>
+  </div>
+</section>
+
+<div class="crack"><svg viewBox="0 0 1200 70" preserveAspectRatio="none"><path d="M0 40 L180 36 L260 48 L340 30 L420 44 L520 26 L600 42 L700 34 L790 50 L880 32 L960 40 L1060 28 L1200 38" fill="none" stroke="#c9a84c" stroke-width="1" opacity=".55"/><path d="M340 30 L360 12 M700 34 L716 58 M1060 28 L1048 8" stroke="#c9a84c" stroke-width=".8" opacity=".35"/></svg></div>
+
+<!-- VALUES -->
+<section id="values">
+  <div class="label">What the collection stands for</div>
+  <h2>Whole, <em>not perfect</em>.</h2>
+  <div class="values">
+    <div class="value"><h3>Whole,<span>not perfect</span></h3><p>The seam shows. That is the point.</p></div>
+    <div class="value"><h3>Rising<span>again</span></h3><p>Made after the fall, not in spite of it.</p></div>
+    <div class="value"><h3>Endurance<span>that lasts</span></h3><p>Solid gold and real stones, built to be worn every day for a lifetime.</p></div>
+    <div class="value"><h3>Inner<span>strength</span></h3><p>Dark diamonds, quiet forms. Nothing needs to shout.</p></div>
+  </div>
+  <div class="whisper solo" style="margin-top:3.5rem">You are not the darkness you endured. You are the light that refused to give up.</div>
+</section>
+
+<!-- DESIGNS -->
+<section id="designs">
+  <div class="label">The Designs</div>
+  <h2>Ten stories, <em>three ways</em> each.</h2>
+  <p>Every design is made as an engagement ring, a wedding band, and a pair of earrings.</p>
+  <div class="whisper solo" style="margin:1.6rem 0 2.5rem">A time to break, a time to build.</div>
+
+  <div class="design" id="gravitational-wave">
+    <div><div class="no">No. 1</div><h3>Gravitational Wave</h3><p>A signet form with two rails circling the stone. The wave rises at the top and settles as it travels around the finger.</p></div>
+    <div class="shots">
+      <div class="shot"><img src="images/gravitational-wave-engagement.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Engagement</div></div>
+      <div class="shot"><img src="images/gravitational-wave-band.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Wedding band</div></div>
+      <div class="shot"><img src="images/gravitational-wave-earrings.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Earrings</div></div>
+    </div>
+  </div>
+
+  <div class="design" id="formation">
+    <div><div class="no">No. 2</div><h3>Formation</h3><p>Black side diamonds in rose gold. Scattered particles drawn toward each other, settling into something new.</p></div>
+    <div class="shots">
+      <div class="shot"><img src="images/formation-engagement.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Engagement</div></div>
+      <div class="shot"><img src="images/formation-band.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Wedding band</div></div>
+      <div class="shot"><img src="images/formation-earrings.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Earrings</div></div>
+    </div>
+  </div>
+
+  <div class="design" id="accretion">
+    <div><div class="no">No. 3</div><h3>Accretion</h3><p>A black disc in rose gold holding a white diamond at its center. Matter spinning inward until it becomes one.</p></div>
+    <div class="shots">
+      <div class="shot"><img src="images/accretion-engagement.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Engagement</div></div>
+      <div class="shot"><img src="images/accretion-band.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Wedding band</div></div>
+      <div class="shot"><img src="images/accretion-earrings.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Earrings</div></div>
+    </div>
+  </div>
+
+  <div class="design" id="disturbed">
+    <div><div class="no">No. 4</div><h3>Disturbed</h3><p>A black marquise on a scarred blade of yellow gold. The surface keeps the marks of what it went through.</p></div>
+    <div class="shots">
+      <div class="shot"><img src="images/disturbed-engagement.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Engagement</div></div>
+      <div class="shot"><img src="images/disturbed-band.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Wedding band</div></div>
+      <div class="shot"><img src="images/disturbed-earrings.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Earrings</div></div>
+    </div>
+  </div>
+
+  <div class="design" id="smoothen">
+    <div><div class="no">No. 5</div><h3>Smoothen</h3><p>A dark oval on a softly rounded blade of rose gold. Edges worn smooth by time, the way a river shapes stone.</p></div>
+    <div class="shots">
+      <div class="shot"><img src="images/smoothen-engagement.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Engagement</div></div>
+      <div class="shot"><img src="images/smoothen-band.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Wedding band</div></div>
+      <div class="shot"><img src="images/smoothen-earrings.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Earrings</div></div>
+    </div>
+  </div>
+
+  <div class="design" id="craquelere">
+    <div><div class="no">No. 6</div><h3>Craquelere</h3><p>A wide blade covered in a crackle pattern, like the glaze of an old ceramic. A whole made of many held cracks.</p></div>
+    <div class="shots">
+      <div class="shot"><img src="images/craquelere-engagement.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Engagement</div></div>
+      <div class="shot"><img src="images/craquelere-band.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Wedding band</div></div>
+      <div class="shot"><img src="images/craquelere-earrings.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Earrings</div></div>
+    </div>
+  </div>
+
+  <div class="design" id="kintsugi">
+    <div><div class="no">No. 7</div><h3>Kintsugi</h3><p>A wide pale band with lines of gold breaking through it. The repair is the design.</p></div>
+    <div class="shots">
+      <div class="shot"><img src="images/kintsugi-engagement.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Engagement</div></div>
+      <div class="shot"><img src="images/kintsugi-band.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Wedding band</div></div>
+      <div class="shot"><img src="images/kintsugi-earrings.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Earrings</div></div>
+    </div>
+  </div>
+
+  <div class="design" id="starz">
+    <div><div class="no">No. 8</div><h3>Starz</h3><p>A smooth band with stars cut straight through the metal. Light passes where the gold is missing.</p></div>
+    <div class="shots">
+      <div class="shot"><img src="images/starz-engagement.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Engagement</div></div>
+      <div class="shot"><img src="images/starz-band.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Wedding band</div></div>
+      <div class="shot"><img src="images/starz-earrings.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Earrings</div></div>
+    </div>
+  </div>
+
+  <div class="design" id="cosmic-web">
+    <div><div class="no">No. 9</div><h3>Cosmic Web</h3><p>A band carrying a web inside it, the way galaxies hang on invisible threads across the universe.</p></div>
+    <div class="shots">
+      <div class="shot"><img src="images/cosmic-web-engagement.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Engagement</div></div>
+      <div class="shot"><img src="images/cosmic-web-band.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Wedding band</div></div>
+      <div class="shot"><img src="images/cosmic-web-earrings.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Earrings</div></div>
+    </div>
+  </div>
+
+  <div class="design" id="sunburst">
+    <div><div class="no">No. 10</div><h3>Sunburst</h3><p>Rays leaving a single point, with small circles at their ends. The eruption that sends light outward.</p></div>
+    <div class="shots">
+      <div class="shot"><img src="images/sunburst-engagement.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Engagement</div></div>
+      <div class="shot"><img src="images/sunburst-band.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Wedding band</div></div>
+      <div class="shot"><img src="images/sunburst-earrings.jpg" alt="" onerror="this.parentElement.classList.add('empty');this.remove()"><div class="cap">Earrings</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="label">Diana Rafael</div>
+  <div class="promise">Every piece is made to order, by hand. When you write to us, you'll always get a real person, never an AI. That's a promise.</div>
+  <a href="https://dianarafael.com">dianarafael.com</a>
+  <div class="fine">REMNANT · Engagement &amp; Wedding Collection · 2026</div>
+  <div class="fine" style="margin-top:.8rem;letter-spacing:.15em;text-transform:none">Kintsugi photo: Wikimedia Commons, CC BY-SA 4.0 · Solar image: NASA/SDO</div>
+</footer>
+
+<script>
+  // hero video takes over only if the file exists and plays; otherwise the jewels stay
+  const hero = document.getElementById('hero'), v = hero.querySelector('video');
+  v.addEventListener('playing', () => hero.classList.add('has-video'));
+  v.addEventListener('error', () => v.remove(), true);
+  // ponytail: same twinkling stars as the moodboard hero, 90 dots
+  const s = document.getElementById('stars');
+  for (let i = 0; i < 90; i++) {
+    const d = document.createElement('div'); d.className = 'star';
+    const z = Math.random() * 1.6 + .4;
+    d.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;width:${z}px;height:${z}px;--d:${(Math.random()*3+2).toFixed(1)}s;--min:${(Math.random()*.3+.1).toFixed(2)};--max:${(Math.random()*.5+.5).toFixed(2)}`;
+    s.appendChild(d);
+  }
+</script>
+</body>
+</html>
